@@ -1,3 +1,9 @@
+export const fetchArticles = () => {
+    return {
+        
+    }
+}
+
 export const addArticle = (content, author) => {
     return {
         type: 'ADD_ARTICLE',

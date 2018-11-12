@@ -4,10 +4,16 @@ import {Route, Switch, BrowserRouter} from 'react-router-dom';
 
 // * Redux Manenos
 import {Provider} from "react-redux";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
+
+// * React Observable manenos
+import {createEpicMiddleware} from 'redux-observable';
 
 // * Reducer Manenos
 import alumni_articles from "./reducers/indexReducer";
+
+// * Epic manenos
+import {articleEpic} from './epics/indexEpic';
 
 // * My components
 import Welcome from "./components/Welcome";
@@ -17,7 +23,11 @@ import NotFound from "./components/NotFound";
 // * Css
 import './App.css';
 
-let store = createStore(alumni_articles);
+
+let epicMiddleware = createEpicMiddleware();
+let store = createStore(alumni_articles, applyMiddleware(epicMiddleware));
+
+epicMiddleware.run(articleEpic);
 
 class App extends Component {
   render() {

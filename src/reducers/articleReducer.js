@@ -1,11 +1,17 @@
-const initialState = [{
+/* const initialState = [{
     content: "I Am The Best Engineer In The World!!",
     author: "TheGreatest"
 }];
+ */
+
+const initialState = [];
 
 export default function articles(state = initialState, action) {
     let article_list = state.slice();
     switch (action.type) {
+
+        case 'FETCH_NOTES':
+            return [...action.articles, ...state]
 
         case 'ADD_ARTICLE':
             return [{ content: action.content, author: action.author }, ...state]
