@@ -8,8 +8,7 @@ export default function articles(state = initialState, action) {
     switch (action.type) {
 
         case 'ADD_ARTICLE':
-            return [...state, 
-            {content: action.content, author: action.author}]
+            return [{ content: action.content, author: action.author }, ...state]
 
         case 'UPDATE_ARTICLE':
                 let article_to_update = article_list[action.id];
