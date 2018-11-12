@@ -5,6 +5,8 @@ import {Route, Switch, BrowserRouter} from 'react-router-dom';
 // * Redux Manenos
 import {Provider} from "react-redux";
 import {createStore} from "redux";
+
+// * Reducer Manenos
 import alumni_articles from "./reducers/indexReducer";
 
 // * My components
