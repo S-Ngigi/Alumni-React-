@@ -45,55 +45,7 @@ class Articles extends Component {
                 <hr/>
                 <h3>Alumni Articles</h3>
 
-                <form onSubmit={this.submitArticle}>
-                    <input
-                        value = {this.state.content}
-                        placeholder="Enter article here..."
-                        onChange = {
-                            (event) => this.setState({
-                                content: event.target.value
-                            })
-                        }
-                    required/>
-                   <br/>
-                    <input
-                        value = {this.state.author}
-                        placeholder="Enter author here..."
-                        onChange = {
-                            (event) => this.setState({
-                                author:event.target.value
-                            })
-                        }
-                    required/>
-                    <br/>
-                    <button onClick={this.resetForm}>Reset</button>
-                    <input type="submit" value="Save Article"/>
-                </form>
-
-                <table>
-                    <tbody>
-                        {this.props.articles.map((article, id) =>(
-                        <tr key={`article_${id}`}>
-                            <td>{article.author}: </td>
-                            <td>{article.content}</td>
-                            <td>
-                                <button onClick={
-                                    () => this.selectForEdit(id)
-                                }>
-                                    edit
-                                </button>
-                            </td>
-                            <td>
-                                <button onClick={
-                                    ()=> this.props.deleteArticle(id)
-                                }>
-                                delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
+                
             </div>
         );
     }

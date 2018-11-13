@@ -4,13 +4,38 @@
 }];
  */
 
-const initialState = [];
+const initialState = {
+    articles: [],
+    isLoading: false,
+    error: null
+};
 
 export default function articles(state = initialState, action) {
-    let article_list = state.slice();
+    // let article_list = state.slice();
     switch (action.type) {
 
-        case 'FETCH_NOTES':
+        case 'FETCH_ARTICLES':
+            return {
+                ...state,
+                isLoading: true,
+                error: null
+            };
+        
+        case 'FETCH_ARTICLES_SUCCESS':
+            return {
+                articles: [...action.payload],
+                isLoading: false,
+                error: null
+            };
+
+        case 'FETCH_ARTICLES_FAILURE':
+            return {
+                articles: [],
+                isLoading: false,
+                error: action.payload
+            }
+
+        /* case 'FETCH_ARTICLES':
             return [...action.articles, ...state]
 
         case 'ADD_ARTICLE':
@@ -25,7 +50,7 @@ export default function articles(state = initialState, action) {
         case 'DELETE_ARTICLE':
                 article_list.splice(action.id, 1);
                 return article_list;
-                
+         */        
         // * Returns our initialState object/array as state.
         default:
             return state;

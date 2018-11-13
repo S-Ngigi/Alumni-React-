@@ -1,6 +1,21 @@
 export const fetchArticles = () => {
     return {
-        
+        type: 'FETCH_ARTICLES'
+
+    }
+}
+
+export const fetchArticlesSuccess = (articles) => {
+    return {
+        type: 'FETCH_ARTICLES_SUCCESS',
+        payload: articles
+    }
+}
+
+export const fetchArticlesFailure = (message) => {
+    return {
+        type: 'FETCH_ARTICLE_FAILURE',
+        payload: message
     }
 }
 
