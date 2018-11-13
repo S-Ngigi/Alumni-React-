@@ -22,6 +22,8 @@ export default function articles(state = initialState, action) {
             };
         
         case 'FETCH_ARTICLES_SUCCESS':
+            console.log(...action.payload);
+            // console.log("We are here!")
             return {
                 articles: [...action.payload],
                 isLoading: false,
